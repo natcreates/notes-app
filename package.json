@@ -1,0 +1,8 @@
+{
+  "name": "notes app",
+  "version": "",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "yargs": "^8.0.2"
+  }
+}
