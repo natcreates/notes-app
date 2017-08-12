@@ -11,12 +11,13 @@ if (command === "add") {
 	var note = notes.addNote(yargs.argv.title, yargs.argv.body);
 
 	if (note){
-		console.log(`Note with title ${note.title} created.`);
+		console.log(`${note.title} created.`);
 	} else {
 		console.log("A note with the same title already exists. Note not created.")
 	}
 } else if (command === "list") {
-	notes.getAll();
+	var allNotes = notes.getAll();
+	allNotes.forEach((note) => notes.logNote(note));
 } else if (command === "clear") {
 	notes.removeAll();
 } else if (command === "remove") {
@@ -27,8 +28,7 @@ if (command === "add") {
 } else if (command === "read") {
 	var note = notes.readNote(yargs.argv.title);
 	if (note) {
-		console.log(note.title);
-		console.log(note.body);
+		notes.logNote(note);
 	} else {
 		console.log("No note found");
 	}
